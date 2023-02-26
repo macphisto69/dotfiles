@@ -48,7 +48,6 @@ home_dir = os.path.expanduser('~')
 #terminal = f"alacritty --config-file {home_dir}/.config/alacritty/alacritty.yml"
 terminal = "alacritty"
 
-
 @lazy.function
 def window_to_prev_group(qtile):
     if qtile.currentWindow is not None:
@@ -232,7 +231,6 @@ for i in groups:
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
     ])
-
 
 def init_layout_theme():
     return {"margin":8,
@@ -496,8 +494,6 @@ def init_screens():
     return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=30, opacity=0.8))]
 screens = init_screens()
 
-
-# MOUSE CONFIGURATION
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
@@ -507,50 +503,6 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []
-
-# ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
-# BEGIN
-
-#########################################################
-################ assgin apps to groups ##################
-#########################################################
-# @hook.subscribe.client_new
-# def assign_app_group(client):
-#     d = {}
-#     #####################################################################################
-#     ### Use xprop fo find  the value of WM_CLASS(STRING) -> First field is sufficient ###
-#     #####################################################################################
-#     d[group_names[0]] = ["Navigator", "Firefox", "Vivaldi-stable", "Vivaldi-snapshot", "Chromium", "Google-chrome", "Brave", "Brave-browser",
-#               "navigator", "firefox", "vivaldi-stable", "vivaldi-snapshot", "chromium", "google-chrome", "brave", "brave-browser", ]
-#     d[group_names[1]] = [ "Atom", "Subl", "Geany", "Brackets", "Code-oss", "Code", "TelegramDesktop", "Discord",
-#                "atom", "subl", "geany", "brackets", "code-oss", "code", "telegramDesktop", "discord", ]
-#     d[group_names[2]] = ["Inkscape", "Nomacs", "Ristretto", "Nitrogen", "Feh",
-#               "inkscape", "nomacs", "ristretto", "nitrogen", "feh", ]
-#     d[group_names[3]] = ["Gimp", "gimp" ]
-#     d[group_names[4]] = ["Meld", "meld", "org.gnome.meld" "org.gnome.Meld" ]
-#     d[group_names[5]] = ["Vlc","vlc", "Mpv", "mpv" ]
-#     d[group_names[6]] = ["VirtualBox Manager", "VirtualBox Machine", "Vmplayer",
-#               "virtualbox manager", "virtualbox machine", "vmplayer", ]
-#     d[group_names[7]] = ["Thunar", "Nemo", "Caja", "Nautilus", "org.gnome.Nautilus", "Pcmanfm", "Pcmanfm-qt",
-#               "thunar", "nemo", "caja", "nautilus", "org.gnome.nautilus", "pcmanfm", "pcmanfm-qt", ]
-#     d[group_names[8]] = ["Evolution", "Geary", "Mail", "Thunderbird",
-#               "evolution", "geary", "mail", "thunderbird" ]
-#     d[group_names[9]] = ["Spotify", "Pragha", "Clementine", "Deadbeef", "Audacious",
-#               "spotify", "pragha", "clementine", "deadbeef", "audacious" ]
-#     ######################################################################################
-#
-# wm_class = client.window.get_wm_class()[0]
-#
-#     for i in range(len(d)):
-#         if wm_class in list(d.values())[i]:
-#             group = list(d.keys())[i]
-#             client.togroup(group)
-#             client.group.cmd_toscreen(toggle=False)
-
-# END
-# ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
-
-
 
 main = None
 
@@ -569,6 +521,7 @@ def set_floating(window):
     if (window.window.get_wm_transient_for()
             or window.window.get_wm_type() in floating_types):
         window.floating = True
+
 
 floating_types = ["notification", "toolbar", "splash", "dialog"]
 
