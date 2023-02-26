@@ -1,0 +1,110 @@
+#          _      _                _                 ___           _   _     
+#    /\/\ (_) ___| |__   __ _  ___| |   /\/\   ___  / _ \_ __ __ _| |_| |__  
+#   /    \| |/ __| '_ \ / _` |/ _ | |  /    \ / __|/ /_\| '__/ _` | __| '_ \ 
+#  / /\/\ | | (__| | | | (_| |  __| | / /\/\ | (__/ /_\\| | | (_| | |_| | | |
+#  \/    \|_|\___|_| |_|\__,_|\___|_| \/    \/\___\____/|_|  \__,_|\__|_| |_|
+#                                                                            
+
+
+#more sensitive data
+[[ -f ~/.bashrc-private ]] && . ~/.bashrc-private
+
+# Sparklines
+# alias clean="clear; seq 1 $(tput cols) | sort -R | sparklines | lolcat"
+
+# exa instead of ls
+alias xls="exa -a --icons --color=always --group-directories-first"
+alias xll="exa -lag --icons --color=always --group-directories-first --octal-permissions"
+alias dgit="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+alias pia="/opt/piavpn/bin/pia-client &"
+alias lsd="ls -lD"
+
+alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
+
+alias cpu="cpuid -i | grep uarch | head -n 1"
+
+#Leftwm aliases
+alias ltl="leftwm-theme list"
+
+# Launch vscodium
+alias code='vscodium'
+
+# YouTube downloader
+alias ytdl="yt-dlp -f 'bv*+ba'"
+
+#moving your personal files and folders from /personal to ~
+alias personal1='cp -Rf /personal/1/* ~'
+alias personal2='cp -Rf /personal/2/* ~'
+alias personal3='cp -Rf /personal/3/* ~'
+alias personal4='cp -Rf /personal/4/* ~'
+alias personal5='cp -Rf /personal/5/* ~'
+alias personal6='cp -Rf /personal/6/* ~'
+alias personal7='cp -Rf /personal/7/* ~'
+alias personal8='cp -Rf /personal/8/* ~'
+alias personal9='cp -Rf /personal/9/* ~'
+
+# alias for git bare repository
+alias gitbare="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+# Pacman mirrorlist
+# alias pac='sudo reflector -c "Ireland,United Kingdom" -a 6 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist'
+
+# Launch LunarVim instead of vim
+alias nv='lvim'
+alias lv='lvim'
+alias vim='lvim'
+alias nvim='lvim'
+
+# Equivalent to autoremove in apt
+alias autoremove='sudo pacman -Rns $(pacman -Qdtq)'
+
+# Start ssh-agent - taken from Arch Wiki
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
+# Install grub-efi
+alias install-grub-efi="sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCOLINUX"
+
+# Emacsclient
+alias emacs="emacsclient -c -a 'emacs'"
+
+alias squash="sudo mksquashfs squashfs-root filesystem.squashfs -b 1024k -comp xz -Xbcj x86 -e boot"
+
+# Edit Qtile config.py
+alias qt="nvim $HOME/.config/qtile/config.py"
+
+# rclone mount Google Drive encrypted
+alias rcln="rclone mount Google_Drive: $HOME/Google_Drive"
+alias rclc="rclone mount Google_Drive_Encrypted: $HOME/Google_Drive_Encrypted"
+
+HISTSIZE=20000
+HISTFILESIZE=20000
+
+
+# Set Color profile
+# xiccd &
+
+export EDITOR='lvim'
+
+# Set a nice bash prompt
+PS1='\[\e[01;34m\]┬─[\[\e[01;33m\u\e[0;36m@\e[01;31m\h\[\e[01;37m\] \W\[\e[01;34m\]]\n╰─>\$\[\e[00m\] '
+
+# Add doom to PATH
+# export PATH="$HOME/.emacs.d/bin:$PATH"
+
+export PATH="$PATH:/opt/piavpn/bin"
+#export PATH="$PATH:/personal/1/.local/bin/audio_conversion/"
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
+#moving your personal files and folders from /personal/x to ~
+alias personal1='cp -Rf /personal/1/* ~'
+alias personal2='cp -Rf /personal/2/* ~'
+alias personal3='cp -Rf /personal/3/* ~'
+alias personal4='cp -Rf /personal/4/* ~'
+
+# Music Player
+alias music='ncmpcpp'
