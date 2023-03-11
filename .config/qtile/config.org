@@ -47,7 +47,7 @@ from libqtile.command import lazy
 #+end_src
 
 * VARIABLES
-#+begin_src bash
+#+begin_src python
 #mod4 or mod = super key
 mod = "mod4"
 mod1 = "alt"
@@ -60,7 +60,7 @@ terminal = "alacritty"
 
 
 * FUNCTIONS
-#+begin_src bash
+#+begin_src python
 @lazy.function
 def window_to_prev_group(qtile):
     if qtile.currentWindow is not None:
@@ -76,7 +76,7 @@ def window_to_next_group(qtile):
 
 * KEYBINDINGS
 ** Most keybindings are in the sxhkd file
-#+begin_src bash
+#+begin_src python
 keys = [
 
 # Most of our keybindings are in sxhkd file - except these
@@ -204,14 +204,14 @@ keys.extend([
 #+end_src
 
 * SCRATCHPADS
-#+begin_src bash
+#+begin_src python
     Key([mod], "m", lazy.group["music"].dropdown_toggle("tunes")),
 
     ]
 #+end_src
 
 * GROUPS
-#+begin_src bash
+#+begin_src python
 groups = []
 
 # FOR QWERTY KEYBOARDS
@@ -244,7 +244,7 @@ for i in groups:
 #+end_src
 
 *WORKSPACES
-#+begin_src bash
+#+begin_src python
 #CHANGE WORKSPACES
         Key([mod], i.name, lazy.group[i.name].toscreen()),
         Key([mod], "Tab", lazy.screen.next_group()),
@@ -261,7 +261,7 @@ for i in groups:
 
 
 * LAYOUTS
-#+begin_src bash
+#+begin_src python
 def init_layout_theme():
     return {"margin":8,
             "border_width":2,
@@ -287,7 +287,7 @@ layouts = [
 #+end_src
 
 * BAR
-#+begin_src bash
+#+begin_src python
 # COLORS FOR THE BAR
 #Theme name : AxylOS
 def init_colors():
@@ -530,7 +530,7 @@ screens = init_screens()
 
 
 * MOUSE CONFIGURATION
-#+begin_src bash
+#+begin_src python
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
@@ -544,7 +544,7 @@ dgroups_app_rules = []
 
 * ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
 ** Not sure if any of these are used
-#+begin_src
+#+begin_src python
 # BEGIN
 
 #########################################################
@@ -590,7 +590,7 @@ dgroups_app_rules = []
 
 
 * HOOKS
-#+begin_src bash
+#+begin_src python
 main = None
 
 @hook.subscribe.startup_once
