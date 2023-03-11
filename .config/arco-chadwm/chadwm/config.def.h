@@ -6,10 +6,10 @@
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int default_border = 0;   /* to switch back to default border after dynamic border resizing via keybinds */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 4;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 4;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 4;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 4;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -70,16 +70,17 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"", "", "", "", "", "", "", "", ""};
+//static char *tags[] = {"", "", "", "", "", "", "", "", ""};
 //static char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-//static char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+static char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
 //static char *tags[] = { "", "", "", "", "", "", "", "", "" };
 //static char *tags[] = { "Web", "Chat", "Edit", "Meld", "Vb", "Mail", "Video", "Image", "Files" };
 //static char *tags[] = {"一", "二", "三", "四", "五", "六", "七", "八", "九"};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
 static const char* discord[] = { "discord", "open" , "discord", NULL };
-static const char* telegram[] = { "telegram-desktop", "open" , "telegram-desktop", NULL };
+//static const char* telegram[] = { "telegram-desktop", "open" , "telegram-desktop", NULL };
+static const char* piavpn[] = { "/opt/piavpn/bin/pia-client", NULL };
 static const char* mintstick[] = { "mintstick", "-m", "iso", NULL};
 static const char* pavucontrol[] = { "pavucontrol", NULL };
 
@@ -87,7 +88,7 @@ static const Launcher launchers[] = {
     /* command     name to display */
     { eww,           "數" },
     { discord,       "ﱲ" },
-    { telegram,      "" },
+    { piavpn,        "" },
     { mintstick,     "虜" },
     { pavucontrol,   "墳" },
 };
